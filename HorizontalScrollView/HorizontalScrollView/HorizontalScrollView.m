@@ -1,6 +1,6 @@
 //
 //  HorizontalScrollView.m
-//  HorizontalScrollView
+//  Mnet
 //
 //  Created by OHSEUNGWOOK on 2017. 3. 31..
 //  Copyright © 2017년 OHSEUNGWOOK. All rights reserved.
@@ -66,6 +66,15 @@
 	return items_;
 }
 
+- (NSUInteger)itemCount
+{
+	if (items_ != nil) {
+		return [items_ count];
+	}
+	
+	return 0;
+}
+
 - (void)addItem:(UIView *)item
 {
 	if (items_ != nil && [items_ count] > 0) {
@@ -79,15 +88,14 @@
 	
 	[items_ addObject:item];
 	[self addSubview:item];
-	
 	[self setContentSize:CGSizeMake(_scrollViewLeftSpace + item.frame.origin.x + _itemSize.width, self.frame.size.height)];
 }
 
 - (void)addItems:(NSArray *)items
 {
-	for (UIView *item in items) {
-		[self addItem:item];
-	}
+	[items enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+		[self addItem:obj];
+	}];
 }
 
 - (BOOL)removeItem:(UIView *)item

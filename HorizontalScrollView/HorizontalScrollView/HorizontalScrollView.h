@@ -1,6 +1,6 @@
 //
 //  HorizontalScrollView.h
-//  HorizontalScrollView
+//  Mnet
 //
 //  Created by OHSEUNGWOOK on 2017. 3. 31..
 //  Copyright © 2017년 OHSEUNGWOOK. All rights reserved.
@@ -19,6 +19,7 @@
 
 // View
 - (NSArray *)itemViews;
+- (NSUInteger)itemCount;
 - (void)calcurateItemsMargin;
 
 // Add Item
